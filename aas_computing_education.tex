@@ -9,6 +9,7 @@
 \usepackage[defaultsans]{cantarell}
 \usepackage[T1]{fontenc}
 
+\usepackage[para]{footmisc}
 
 \usepackage[small,compact]{titlesec}
 \titlespacing{\subsection}{0pt}{*2}{*0.125}
@@ -19,6 +20,16 @@
 \pagestyle{fancy}
 \rhead{\footnotesize \sf The Importance of Computation in Astronomy Education}
 \lhead{}
+
+\newenvironment{squishlist}                                                     
+  {\begin{itemize}                                                              
+    % set spacing between items                                                 
+    \addtolength{\itemsep}{-0.33\baselineskip}                                  
+    % set spacing between lines                                                 
+    %\addtolength{\baselineskip}{-0.25\baselineskip}                            
+   }                                                                            
+  { \end{itemize} }                                                             
+                       
 
 \usepackage{tcolorbox}
 
@@ -31,6 +42,7 @@
 {
 M. Zingale\footnote{Stony Brook University}
 F.X.~Timmes\footnote{Arizona State University}
+R.~Fisher\footnote{U Mass Dartmouth}
 }
 \end{center}
 
@@ -69,12 +81,13 @@ written in a variety of languages (C++, Fortran, and python being the
 most popular).  Observational astronomy is entirely digital, and the
 workflow takes the form of a software pipeline to reduce and analyze
 data.  IDL was a popular player here a decade ago, but is rapidly
-being replaced by python, and core libraries such as AstroPy are being
-developed to fill this need.
+being replaced by python, and core libraries such as
+AstroPy\footnote{\url{http://www.astropy.org/}} are being developed to
+fill this need.
 
 Furthermore, the workflow in Astronomy is often expressed in terms of
 a UNIX-like environment with OS X or Linux serving as the OS of
-choice.  Students coming out of high school may be unfamaliar with
+choice.  Students coming out of high school may be unfamiliar with
 (and put off from) the commandline and the power it enables.
 
 \section{Undergraduate Education}
@@ -84,20 +97,24 @@ take some for of computer programming class.  For example, the State
 University of NY (SUNY) transfer path for physics requires intro to CS
 in first 2
 years~\footnote{\url{http://www.suny.edu/attend/get-started/transfer-students/suny-transfer-paths/pdf/transferSUNY_Physics.pdf}}.
-Ideally, students would learn elements of scientific computing
-and basic numerical analysis.
+Ideally, students would learn elements of scientific computing and
+basic numerical analysis.  Many other institutions have such
+requirements, but it is not universal.  We recommend that the AAS
+advocate for making scientific computation literacy a requirement for
+undergraduate majors.
 
-What is not universally done is following up on this introduction
-by applying the computing skills to problems in upper-level
-astronomy courses.  There are lots of opportunities for
-this, for example in stellar structure, using Open Source
-tools developed by the community. Open data archives enable access to galactic and extragalactic data relevant to all of these
-core topics, and present educators with outstanding opportunities to bring students directly
-into contact with real-world data, and to integrate data analysis  and computation into the
-standard undergraduate curriculum. Some examples of data-driven exercises include :
-
-
-\begin {enumerate}
+What is also not universally done is following up on this introduction
+by applying the computing skills to problems in upper-level astronomy
+courses.  There are lots of opportunities for this.  In stellar
+structure, Open Source tools developed by the community can be used to
+understand all stages of stellar evolution. Open data archives enable
+access to galactic and extragalactic data relevant to all of these
+core topics, and present educators with outstanding opportunities to
+bring students directly into contact with real-world data, and to
+integrate data analysis and computation into the standard
+undergraduate curriculum. Some examples of data-driven exercises
+include :
+\begin {squishlist}
 
 \item Inferring the mass, radius, and density of the historic transiting exoplanet HD209458b
 
@@ -109,16 +126,23 @@ standard undergraduate curriculum. Some examples of data-driven exercises includ
 
 \item Analysis of the gravitational waves from the historic binary black hole merger GW150914
 
-\end {enumerate}
+\end {squishlist}
 
-Instructors can guide students with highly-structured homework exercises and class projects which
-empower students to become acquainted with the power of computation on realistic ``real world''
+Many astrophysical hydrodynamics codes are freely available and
+provide sample problems that can be used as the basis for lesson
+plans (for instance, shocks in the ISM).
+
+Instructors can guide students with highly-structured homework
+exercises and class projects which empower students to become
+acquainted with the power of computation on realistic ``real world''
 examples, and learn foundational data analysis skills.
 
 AAS should encourage the development and sharing of computational
-tools, lessons, and projects amongst their members. Broad dissemination of software carpentry lesson training plans, exemplified
-by recent AAS workshops on this topic, will help familiarize students with
-these fundamental software skills, which also are transferable to a wide range of careers outside of astronomy.
+tools, lessons, and projects amongst their members. Broad
+dissemination of software carpentry lesson training plans, exemplified
+by recent AAS workshops on this topic, will help familiarize students
+with these fundamental software skills, which also are transferable to
+a wide range of careers outside of astronomy.
 
 
 
@@ -126,66 +150,68 @@ these fundamental software skills, which also are transferable to a wide range o
 
 \section{Graduate Education}
 
-A common issue at the graduate level is that speciality classes (e.g.,
+A common issue at the graduate level is that specialty classes (e.g.,
 one focusing on computational hydrodynamics) tend to attract only a
 small number of students, making it difficult to justify their regular
 offering.
 
-At the graduate level, a popular way to train students in the specialized
-codes and techniques used in each subdiscipline are summer schools.
-AAS should encourage summer schools and training sessions, perhaps in 
-association with annual meetings.  The Software Carpentry sessions
-at recent meetings is an excellent example of this, and there is 
-a lot of potential for this to be expanded.  Community code projects
-should be encouraged by AAS to offer similar tutorial sessions for 
-their domain codes.  
+At the graduate level, a popular way to train students in the
+specialized codes and techniques used in each sub-discipline are summer
+schools.  AAS should encourage summer schools and training sessions,
+perhaps in association with annual meetings.  The Software
+Carpentry\footnote{\url{http://software-carpentry.org/}} sessions at
+recent meetings is an excellent example of this, and there is a lot of
+potential for this to be expanded.  Community code projects should be
+encouraged by AAS to offer similar tutorial sessions for their domain
+codes.
 
-Additonally, as Software Carpentry has proven to be such a valuable
+Additionally, as Software Carpentry has proven to be such a valuable
 training method in scientific computing, AAS meetings should also
 offer instructor training sessions for Software Carpentry, so members
 can offer workshops at their own institutions.
 
 
 \section{Open Source and Open Education Resources}
+
 Open educational resources (OER) are freely accessible, openly
 licensed documents and media that are useful for teaching, learning,
-assessing, and research. It is one the leading trends in distance education,
-yet there is a paucity of quality OER materials for astronomy. A few notables
-include:
-(1) \href{http://astroedu.iau.org}{http://astroedu.iau.org} is 
-is targeted at K-12. It was launched in February 2015 and 
-supported by the IAU Office for Astronomy Development;
-(2) \href{https://open-astrophysics-bookshelf.github.io}{https://open-astrophysics-bookshelf.github.io}
-and \href{http://www.pa.msu.edu/~ebrown/lecture-notes.html}{http://www.pa.msu.edu/~ebrown/lecture-notes.html}
-are a collection of texts aimed at the undergraduate level; 
-(3) \href{http://mesa-web.asu.edu}{http://mesa-web.asu.edu} 
-is web-based portal to the stellar evolution instrument, Modules for
-Experiments in Stellar Astrophysics ({\tt MESA}) and aimed at 
-secondary and undergraduate education. To date, this unfunded OER effort has
-run over 1200 stellar evolution models since March 2015 from jobs submitted
-by 62 institutions in the USA.
+assessing, and research. It is one the leading trends in distance
+education, yet there is a paucity of quality OER materials for
+astronomy. A few notables include: (1)
+\href{http://astroedu.iau.org}{http://astroedu.iau.org} is is targeted
+at K-12. It was launched in February 2015 and supported by the IAU
+Office for Astronomy Development; (2) The resources available on the
+Astrobetter
+Wiki\footnote{\url{http://www.astrobetter.com/wiki/Wiki+Home}} which
+include links to user-contributed class slides, animations, texts,
+etc. (3) open-licensed texts for undergraduate and graduate education,
+such as those hosted on the Open Astrophysics
+Bookshelf\footnote{\url{https://open-astrophysics-bookshelf.github.io}}
+and other
+sites\footnote{\url{http://www.pa.msu.edu/$\sim$ebrown/lecture-notes.html}}
+(4) MESA-Web\footnote{\url{http://mesa-web.asu.edu}}, a
+web-based portal to the stellar evolution instrument, Modules for
+Experiments in Stellar Astrophysics ({\tt MESA}) and aimed at
+secondary and undergraduate education. To date, this unfunded OER
+effort has run over 1200 stellar evolution models since March 2015
+from jobs submitted by 62 institutions in the USA.
 
-
-
-\subsection{Python and Jupyter Notebooks}
-
-Notebooks have found wide adoption in the classroom and allow for
-interactive in-class activities and for the student to reply the
-lecture on their own outside of class.
-
-\subsection{Simulation Codes}
-
-
-
+Finally, the advent of IPython/Jupyter notebooks has made the
+deployment of interactive computation-based exercises much easier.  We
+recommend that the AAS recognize the value of OER and explore ways to
+fund these efforts in our community.
 
 \section{Careers}
 
-Many Astronomy PhDs will not stay in academia, since each faculty member
-will produce many PhDs during their academic career.  As a result, graduates
-will find jobs in industry and at national labs. Computational skills are perhaps
-among the most transferable skills which an astronomy graduate student will acquire
-in their education and training, and
-can make a grad very attractive to a wide range of potential employers.
+Finally, many Astronomy PhDs will not stay in academia, since each
+faculty member will produce many PhDs during their academic career.
+As a result, graduates will find jobs in industry and at national
+labs. Computational skills are perhaps among the most transferable
+skills which an astronomy graduate student will acquire in their
+education and training, and can make a grad very attractive to a wide
+range of potential employers.  Advocacy by AAS for increased
+computational literacy in all stages of education will greatly help
+our graduates.
 
 
 \end{document}
